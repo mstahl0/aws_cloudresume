@@ -10,10 +10,10 @@ This project is created in response to the Cloud Resume Challenge penned by Forr
 - [x] Static S3 Website
 - [x] HTTPS
 - [x] DNS
-- [ ] Javascript
-- [ ] Database
-- [ ] API
-- [ ] Python
+- [x] Javascript
+- [x] Database
+- [x] API
+- [x] Python
 - [ ] Testing
 - [ ] IaC
 - [ ] CI/CD (BE)
