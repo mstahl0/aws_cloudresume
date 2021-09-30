@@ -38,13 +38,26 @@
                         // -->
                         </SCRIPT></p>
                     <p>Location : Hamburg, Germany</p>
-                                     
+                    
+                    
+                        <head>
+                            <script>
+                                fetch('https://oum31b70m9.execute-api.eu-central-1.amazonaws.com/prod/hello')
+                                .then(response => response.json())
+                                .then((data) => {
+                                    document.getElementById('visits').innerText = data.ID
+                                })
+                            </script>
+                            
+                        </head>
+                        
                         <body>
                             <p>
                                 Visitors:
                                 <span id="visits" />
                             </p>
                         </body>
+                        
             
                     <button class="btn btn-download-cv btn-primary rounded-pill">
                         <class="btn-img">deployed on <img src="assets/images/aws.svg" alt="hyperscaler"</button>
@@ -71,8 +84,28 @@
             </div>
         </div>
     </aside>
-      
-       <main>
+        
+        
+<!--        <main>
+            <section class="services-section">
+                <h6 class="section-subtitle">HANDS-ON</h6>
+                <h2 class="section-title">PROJECTS</h2>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="service-icon">
+                            <img src="assets/images/002-development.svg" alt="target">
+                        </div>
+                        <br>
+                        <div class="media-body">
+                            <h5 class="service-title">Cloud Resume Challenge</h5>
+                            <p class="service-description"><a href="https://hashnode.com/@mstahl" class="social-link"><i class="fas fa-hammer"></i> <i class="fas fa-drafting-compass"></i> <i class="fas fa-screwdriver"></i></a>
+                        </div>
+                    </div>
+
+           </section>
+        </main>
+                <br>
+-->        <main>
             <section class="intro-section">
                 <h2 class="section-title">Profile</h2>
                 <p>Self-educated System Administrator and Help Desk Technician with 3+ years of hands-on experience.</p>
@@ -112,7 +145,6 @@
     <script src="assets/vendors/@popperjs/core/dist/umd/popper-base.min.js"></script>
     <script src="assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="assets/js/live-resume.js"></script>
-    <script src="assets/js/visits.js"></script>
 </body>
 
 </html>
