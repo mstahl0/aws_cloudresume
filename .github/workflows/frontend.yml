@@ -1,27 +1,21 @@
-name: Example workflow for S3 Deploy
-on: [push]
+name: S3_Sync
+
+on:
+  push:
+  branches:
+  - stage
+
 jobs:
-  run:
-    runs-on: ubuntu-latest
+  deploy:
+  runs-on: ubuntu-latest
+  steps:
+  - uses: actions/checkout@master
+  - uses: jakejarvis/s3-sync-action@master
+    with:
+    args: --acl public-read --follow-symlinks --delete
     env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      AWS_DEFAULT_REGION: eu-central-1
-    steps:
-        - uses: actions/checkout@v1
-          with:
-            ref: stage
-
-        - name: Install dependencies
-          run: yarn
-
-        - name: Build
-          run: yarn build
-
-        - name: Deploy
-          uses: lbertenasco/s3-deploy@v1
-          with:
-            folder: aws_cloudresume/frontend
-            bucket: ${{ secrets.S3_BUCKET }}
-            dist-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
-            invalidation: / *
+    AWS_S3_BUCKET: ${{ secrets.S3_BUCKET }}
+    AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    AWS_REGION: eu-central-1
+    SOURCE_DIR: aws_Cloudresume/frontend/index.html
