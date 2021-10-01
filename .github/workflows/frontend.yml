@@ -8,6 +8,8 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     steps:
         - uses: actions/checkout@v2
+          with:
+              ref: stage
 
         - name: Install dependencies
           run: yarn
