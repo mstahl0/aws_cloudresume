@@ -1,0 +1,11 @@
+deploy-site:
+	runs-on: ubuntu-latest
+	env:
+		AWS_ACCESS_KEY_ID:
+		AWS_SECRET_ACCESS_KEY:
+	steps:
+		-
+
+
+- name: S3 Deploy
+  uses: Reggionick/s3-deploy@v3.1.1
