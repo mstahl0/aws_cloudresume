@@ -18,7 +18,7 @@ jobs:
         - name: Deploy
           uses: reggionick/s3-deploy@v3
           with:
-            folder: aws_cloudresume/frontend/
+            folder: aws_cloudresume/frontend
             bucket: ${{ secrets.S3_BUCKET }}
             bucket-region: eu-central-1
             dist-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
